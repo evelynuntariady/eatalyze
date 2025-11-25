@@ -9,4 +9,5 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
+# Use Railway's PORT env variable
+CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port $PORT"]
